@@ -172,38 +172,35 @@ yargs(hideBin(process.argv))
         const filePath = `${dirPath}/${file}`;
         const data = fs.readFileSync(filePath, 'utf-8');
         const funkoJSON = JSON.parse(data); 
-        if (funkoJSON.id === argv.id) {          
+        if (funkoJSON.id === argv.id) {
+          fs.renameSync(filePath, `${dirPath}/${argv.id}.json`)                 
           existe = true;
-          if (argv.name != undefined) {   
-            fs.renameSync(filePath, `${dirPath}/${argv.name}.json`)         
-            funkoJSON.name = argv.name;
-          } else {
-            const fileName = path.parse(filePath).name;
-            funkoJSON.name = fileName;
+          if (argv.name) {     
+            funkoJSON.nombre = argv.nombre;
           }
-          if (argv.desc != undefined) {
+          if (argv.desc) {
             funkoJSON.desc = argv.desc;
           }
-          if (argv.type != undefined) {
-            funkoJSON.type = argv.type;
+          if (argv.tipo) {
+            funkoJSON.tipo = argv.tipo;
           }
-          if (argv.genre != undefined) {
-            funkoJSON.genre = argv.genre;
+          if (argv.genero) {
+            funkoJSON.genero = argv.genero;
           }
-          if (argv.franch != undefined) {
-            funkoJSON.franch = argv.franch;
+          if (argv.franquicia) {
+            funkoJSON.franquicia = argv.franquicia;
           }
-          if (argv.franchnum != undefined) {
-            funkoJSON.franchnum = argv.franchnum;
+          if (argv.numero) {
+            funkoJSON.numero = argv.numero;
           }
-          if (argv.excl != undefined) {
-            funkoJSON.excl = argv.excl;
+          if (argv.exclusivo) {
+            funkoJSON.exclusivo = argv.exclusivo;
           }
-          if (argv.spcfeat != undefined) {
-            funkoJSON.spcfeat = argv.spcfeat;
+          if (argv.especial) {
+            funkoJSON.especial = argv.especial;
           }
-          if (argv.market != undefined) {
-            funkoJSON.marketValue = argv.market;
+          if (argv.valor) {
+            funkoJSON.valor = argv.valor;
           }
           fs.writeFileSync(`${dirPath}/${funkoJSON.name}.json`, JSON.stringify(funkoJSON, null, 2));
           console.log(chalk.green.bold(`El Funko con el ID = ${argv.id} ha sido actualizado en la colección de ${argv.usuario}`));

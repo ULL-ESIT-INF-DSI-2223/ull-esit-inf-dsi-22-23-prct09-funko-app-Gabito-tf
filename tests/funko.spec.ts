@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { Funko } from "../src/funko/funko"
 import { Tipo, Genero} from "../src/funko/funko";
 
-const funkoTests = new Funko(999, "Test Funko", "Test Funko", Tipo.POP, Genero.ANIME, "Pokémon", 999, true, "Test Funko", 999);
+const funkoTests = new Funko(999, "Test Funko", "Test Funko", Tipo.POP, Genero.ANIMATION, "Pokemon", 999, true, "Test Funko", 999);
 
 describe('Tests clase Funk', () => {
   it ('Setear ID de funko', () => {
@@ -35,18 +35,18 @@ describe('Tests clase Funk', () => {
     expect(funkoTests.getTipo()).to.equal(Tipo.POP);
   });
   it ('Setear género de funko', () => {
-    funkoTests.setGenero(Genero.ANIME);
-    expect(funkoTests.getGenero()).to.equal(Genero.ANIME);
+    funkoTests.setGenero(Genero.VIDEOGAMES);
+    expect(funkoTests.getGenero()).to.equal(Genero.VIDEOGAMES);
   });
   it ('Ver género de funko', () => {
-    expect(funkoTests.getGenero()).to.equal(Genero.ANIME);
+    expect(funkoTests.getGenero()).to.equal(Genero.VIDEOGAMES);
   });
   it ('Setear franquicia de funko', () => {
-    funkoTests.setFranquicia("Pokémon");
-    expect(funkoTests.getFranquicia()).to.equal("Pokémon");
+    funkoTests.setFranquicia("Pokemon");
+    expect(funkoTests.getFranquicia()).to.equal("Pokemon");
   });
   it ('Ver franquicia de funko', () => {
-    expect(funkoTests.getFranquicia()).to.equal("Pokémon");
+    expect(funkoTests.getFranquicia()).to.equal("Pokemon");
   });
   it ('Setear número de funko', () => {
     funkoTests.setNumero(999);
